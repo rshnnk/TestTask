@@ -12,12 +12,16 @@
 @footer_p_font: 12px Verdana;
 @footer_p: #727272;
 @lightgray: #b3b3b3;
-@footer_menu_font: 11px Verdana;
+@footer_menu: 11px Verdana;
 @blue: #00b4ff;
-@logo_h1_font: 36px ;
+@logo_h1_font: 36px Aliquam;
 @logo_h1: #b4b4b4;
 @bubble: darken(@content_box, 60% );
 @bubble_i:italic 10px Verdana;
+@border: #e4e4e4;
+
+
+@import "font";
 
 body{
 	background: url("../images/bg.png") repeat;
@@ -31,7 +35,8 @@ ul{
 }
 
 .logo{
-  width: 165px;
+  width: 178px;
+  display: block;
   h1{
     padding: 0;
     margin: 0;
@@ -45,7 +50,7 @@ ul{
 
   p{
     float: right;
-    font: @footer_menu_font;
+    font: @footer_menu;
     color: @lightgray;
   }
   &:hover{
@@ -62,7 +67,8 @@ ul{
 
 
   .navbar-nav > li > a{
-    color: @lightgray ;
+    line-height: 120px;
+    color: @lightgray;
     text-transform: uppercase;
     font: @content_p_font;
     border-radius: 22.5px;
@@ -78,7 +84,7 @@ ul{
       background-image: linear-gradient(to top, #0eb8ff, #0f8bbe);
     }
     &:visited{
-      color: @white;
+      color: @lightgray;
     }
 
   }
@@ -99,10 +105,7 @@ ul{
 
 
 
-.navbar-nav > li > a {
-  line-height: 120px;
 
-}
 
 
 
@@ -137,33 +140,49 @@ ul{
       border: solid 1px #e4e4e4;
       width: 96.7%;
       min-height: 205px;
-      margin: 15px 12px;
+      margin-top: 15px;
+      margin-right: auto;
+      margin-left: auto;
       position: relative;
 
-      .next{
+
+      .owl-prev, .owl-next{
+        position: absolute;
+        top: 37%;
         -webkit-box-shadow: inset 0 0 0 1px #dfdfdf;
         -moz-box-shadow: inset 0 0 0 1px #dfdfdf;
         box-shadow: inset 0 0 0 1px #dfdfdf;
         border: solid 3px #fff;
-        background-image: -webkit-linear-gradient(top, #e7e7e7, #fff);
-        background-image: -moz-linear-gradient(top, #e7e7e7, #fff);
-        background-image: -o-linear-gradient(top, #e7e7e7, #fff);
-        background-image: -ms-linear-gradient(top, #e7e7e7, #fff);
-        background-image: linear-gradient(to bottom, #e7e7e7, #fff);
+        background: url("../images/arrow.png") no-repeat center center, -webkit-linear-gradient(top, #e7e7e7, #fff);
+        background: url("../images/arrow.png") no-repeat center center, -moz-linear-gradient(top, #e7e7e7, #fff);
+        background: url("../images/arrow.png") no-repeat center center, -o-linear-gradient(top, #e7e7e7, #fff);
+        background: url("../images/arrow.png") no-repeat center center, -ms-linear-gradient(top, #e7e7e7, #fff);
+        background: url("../images/arrow.png") no-repeat center center, linear-gradient(to bottom, #e7e7e7, #fff);
         width: 40px;
         height: 40px;
+
+
+
       }
 
+      .owl-prev{
+        left: -15px;
+        transform: scaleX(-1);
+      }
+
+      .owl-next{
+        right: -15px;
+      }
 
       .slide{
-        background-image: -webkit-linear-gradient(bottom, #0eb6fd, #0f8dc2);
-        background-image: -moz-linear-gradient(bottom, #0eb6fd, #0f8dc2);
-        background-image: -o-linear-gradient(bottom, #0eb6fd, #0f8dc2);
-        background-image: -ms-linear-gradient(bottom, #0eb6fd, #0f8dc2);
-        background-image: linear-gradient(to top, #0eb6fd, #0f8dc2);
+        background:  -webkit-linear-gradient(bottom, #0eb6fd, #0f8dc2), url("../images/mosaic.png");
+        background:  -moz-linear-gradient(bottom, #0eb6fd, #0f8dc2);
+        background:  -o-linear-gradient(bottom, #0eb6fd, #0f8dc2);
+        background:  -ms-linear-gradient(bottom, #0eb6fd, #0f8dc2);
+        background:  linear-gradient(to top, #0eb6fd, #0f8dc2);
         width: 98.5%;
         min-height: 190px;
-        margin: 6px auto;
+        margin: 1% auto;
 
         img{
           margin: 2.5% 0 0 3.7%;
@@ -181,6 +200,7 @@ ul{
         p{
           font: @content_p_font;
           color: @white;
+          padding: 0 31px;
         }
       }
 
@@ -206,7 +226,7 @@ ul{
     }
 
     .left-content{
-
+      border-right: 1px solid @border;
       p{
         padding: 0;
       }
@@ -220,12 +240,13 @@ ul{
       font-style: italic;
 
       li{
-        padding: 0 0 15px 0;
+        margin: 0 0 15px 0;
+        border-bottom: 1px solid @border;
       }
     }
 
     .bottom_box {
-      border: solid 1px #e4e4e4;
+      border: solid 1px @border;
       width: 95.5%;
       min-height: 110px;
       background: @white;
@@ -233,8 +254,18 @@ ul{
     }
 
     .bottom_inner{
+      background-image: -webkit-linear-gradient(bottom, #f5f5f5, #fff);
+      background-image: -moz-linear-gradient(bottom, #f5f5f5, #fff);
+      background-image: -o-linear-gradient(bottom, #f5f5f5, #fff);
+      background-image: -ms-linear-gradient(bottom, #f5f5f5, #fff);
+      background-image: linear-gradient(to top, #f5f5f5, #fff);
+      min-height: 100px;
+      margin: 4px 0 0 0;
+      padding: 20px 14px 0 0px;
+      &:first-child {
+        border-right: 1px solid @border;
+      }
 
-      padding: 30px 0 0 0 ;
 
         img{
           float: left;
@@ -284,42 +315,9 @@ footer{
   }
 
 
-  .bottom_menu{
-    height: 105px;
-    width: 492px;
-    float: right;
-    li{
-      padding: 2px 16px;
-      letter-spacing: 0px;
-      &:last-child{
-        padding: 0 0 0 20px;
-      }
 
-      a{
-        color: @lightgray;
-        font: @footer_menu_font;
-        text-transform: uppercase;
-        line-height: 105px;
-      }
-    }
-  }
 
-  .terms{
-    width: 260px;
 
-    li {
-      &:first-child{
-        border-right: 1px solid white;
-        padding: 0 5px;
-      }
-
-      }
-      a {
-        color: @white;
-        font: @footer_menu_font;
-
-    }
-  }
 
   .bubble{
     width: 250px;
@@ -351,8 +349,46 @@ footer{
       padding: 25px 0 0 10px;
     }
   }
+
+
+  .navbar-nav>li>a {
+    margin: 30px 0 0 0;
+    color: @lightgray;
+    font: @footer_menu;
+    text-transform: uppercase;
+    &:hover{
+      background: transparent;
+
+    }
+  }
+
+  .terms{
+    margin: 60px 0 0 0;
+
+    li:first-child{
+      border-right: 1px solid @white;
+      padding: 0 5px 0 0;
+    }
+    a {
+      color: @white;
+      font: @footer_menu;
+    }
+  }
+
+  .logo{
+    float: right;
+    margin: 30px 0 0 0;
+  }
+
 }
 
+
+@media screen and (max-width: 320px) {
+  .owl-carousel{
+    width: 90%;
+    margin: auto;
+  }
+}
 
 
 
